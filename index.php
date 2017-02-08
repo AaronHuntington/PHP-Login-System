@@ -1,28 +1,33 @@
 <?php
     include("inc/config.php");
+    include(INC_FOLDER_ROOTPATH."header.php");
 
-    include(INC_FOLDER_ROOTPATH."init.php");
+    if(isset($_POST['submit'])){
+        $signupClass = new signup;
+
+
+        $signupClass->firstName         = $_POST['firstName'];
+        $signupClass->lastName          = $_POST['lastName'];
+        $signupClass->email             = $_POST['email'];
+        $signupClass->password          = $_POST['password'];
+        $signupClass->passwordConfirm   = $_POST['passwordConfirm'];
+      
+        $signupClass->image     = $_FILES['image']['name'];
+        $signupClass->tmp_image = $_FILES['image']['tmp_name'];
+        $signupClass->imageSize = $_FILES['image']['size'];
+
+        echo $signupClass->signup_formCheck();
+    }
+
 ?>
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>Registration Page</title>
-        <link rel="stylesheet" href="css/styles.css"  />
-    </head>
-    <body>
-        <div id="wrapper">
-            <div id="menu">
-                <a href="index.php">Sign Up</a>
-                <a href="login.php">Login</a>
-            </div>
             <div id="formDiv">
                 <form method="POST" action="index.php" enctype="multipart/form-data">
 
                     <label>First Name:</label><br/>
-                    <input type="text" name="fname" class="inputFields" required/><br/><br/>
+                    <input type="text" name="firstName" class="inputFields" required/><br/><br/>
 
                     <label>Last Name:</label><br/>
-                    <input type="text" name="lname"  class="inputFields" required/><br/><br/>
+                    <input type="text" name="lastName"  class="inputFields" required/><br/><br/>
 
                     <label>Email:</label><br/>
                     <input type="text" name="email"  class="inputFields" required/><br/><br/>
