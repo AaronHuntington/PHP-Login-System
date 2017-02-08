@@ -1,3 +1,8 @@
+<?php
+    include("inc/config.php");
+
+    include(INC_FOLDER_ROOTPATH."init.php");
+?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -30,7 +35,6 @@
 
                     <label>Image:</label><br/>
                     <input type="file" name="image" id="imageupload"/><br/><br/>
-
 
                     <input type="checkbox" name="conditions" />
 
