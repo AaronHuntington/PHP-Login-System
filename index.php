@@ -34,7 +34,7 @@
 
                     <input type="checkbox" name="conditions" />
 
-                    <label>I agree with terms and conditions</label><br/><br/>
+                    <label>I agree with terms and conditions.</label><br/><br/>
 
                     <input type="submit"  class="theButtons"  name="submit" />
                 </form>
