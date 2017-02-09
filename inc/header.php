@@ -7,6 +7,18 @@
         <title>Registration Page</title>
         <link rel="stylesheet" href="css/styles.css"  />
     </head>
+    <div id="errorBox" style="">
+        <?php
+            session_start();
+
+            $signupClass = new signup;
+            $signupClass->display_errors();
+            // print_r( $_SESSION);
+            // echo $signupClass->check_for_errors();
+
+  
+        ?>
+    </div>
     <?php
         include('topNavigation.php');
     ?>
