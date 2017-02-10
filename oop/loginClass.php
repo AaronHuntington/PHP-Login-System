@@ -2,19 +2,49 @@
 
     class login{    
 
-        public static function email_exists(){
+        var $email;
+        var $login_password;
+
+        public function email_exists(){
             global $database;
 
-            $result = mysqli_query($con,"SELECT id FROM users WHERE email='$email'");
+            $email = $this->email;
+
+            $sql = "SELECT * FROM users WHERE email='".$email."'";
         
-            if(mysqli_num_rows($result) == 1){
-                return true;
+            $results = $database->query($sql);
+
+            if(mysqli_num_rows($results) == 1){
+
+                $password       = $this->getPw_by_email();
+                $loginPassword  = $this->login_password;
+
+                return utility::pw_check($password, $loginPassword);
+
+
+                // return true;
             } else {
-                return false;
+                //Email is not recorded in our database.
+                $url = "login.php?adf";
+                return utility::redirect_index($url);
             }
         }
 
-        public static function logged_in(){
+        public function getPw_by_email(){
+            global $database;
+
+            // $email = $this->email;
+            $email = '8ahuntington@gmail.com';
+
+            $sql = "SELECT password FROM users WHERE email='".$email."'";
+
+            $query = $database->query($sql);
+            $value = $query->fetch_array();
+
+            return $value['password'];
+        }
+
+        public function logged_in(){
             if(isset($_SESSION['email']) || isset($_COOKIE['email'])){
                 return true;
             } else {
