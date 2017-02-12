@@ -5,7 +5,7 @@
 <html>
     <head>
         <title>Registration Page</title>
-        <link rel="stylesheet" href="css/styles.css"  />
+        <link rel="stylesheet" href="<?php echo BASE_URL;?>css/styles.css"  />
     </head>
     <div id="errorBox" style="">
         <?php
