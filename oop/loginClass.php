@@ -18,7 +18,7 @@
             if(mysqli_num_rows($results) == 1){
 
                 $password       = $this->getPw_by_email();
-                $loginPassword  = $this->login_password;
+                $loginPassword  = utility::pw_encryption($this->login_password);
 
                 // return utility::pw_check($password, $loginPassword);
                 if(utility::pw_check($password,$loginPassword) == 'true'){
@@ -28,13 +28,18 @@
                     $url = "cms/";
                     return utility::redirect_index($url);
                 } else{
-                    return 'bad';
+                    $url = "login.php?adf";
+                    $msg = "Entered wrong password.= ".$password;
+                    utility::set_sessionMessage($msg);
+                    return utility::redirect_index($url);
                 }
 
                 // return true;
             } else {
                 //Email is not recorded in our database.
                 $url = "login.php?adf";
+                $msg = "Email not in database.";
+                utility::set_sessionMessage($msg);
                 return utility::redirect_index($url);
             }
         }
@@ -48,8 +53,7 @@
         public function getPw_by_email(){
             global $database;
 
-            // $email = $this->email;
-            $email = '8ahuntington@gmail.com';
+            $email = $this->email;
 
             $sql = "SELECT password FROM users WHERE email='".$email."'";
 
