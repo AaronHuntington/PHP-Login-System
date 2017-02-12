@@ -9,7 +9,6 @@
     $email      = $signupClass->set_variables('email');
     $image      = $signupClass->set_variables('image');
 
-    session_unset();
 ?>
             <div id="formDiv">  
                 <form method="POST" action="enter_user.php" enctype="multipart/form-data">
@@ -46,11 +45,11 @@
                         name="passwordConfirm"  
                         class="inputFields" 
                         require/><br/><br/>
-
+<!-- 
                     <label>Image:</label><br/>
                     <input type="file" 
                         name="image" 
-                        id="imageupload"/><br/><br/>
+                        id="imageupload"/><br/><br/> -->
 
                     <!-- <input type="checkbox" name="conditions" />
                     <label>I agree with terms and conditions.</label><br/><br/> -->

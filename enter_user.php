@@ -11,9 +11,9 @@
     $signupClass->password = $_POST['password'];
     $signupClass->passwordConfirm = $_POST['passwordConfirm'];
   
-    $signupClass->image = $_FILES['image']['name'];
-    $signupClass->tmp_image = $_FILES['image']['tmp_name'];
-    $signupClass->imageSize = $_FILES['image']['size'];
+    // $signupClass->image = $_FILES['image']['name'];
+    // $signupClass->tmp_image = $_FILES['image']['tmp_name'];
+    // $signupClass->imageSize = $_FILES['image']['size'];
             
     // $conditions = isset($_POST['conditions']);
 

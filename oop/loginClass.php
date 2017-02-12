@@ -23,7 +23,6 @@
                 // return utility::pw_check($password, $loginPassword);
                 if(utility::pw_check($password,$loginPassword) == 'true'){
 
-
                     $this->set_user_email();
 
                     $url = "cms/";

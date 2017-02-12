@@ -49,14 +49,14 @@
                 $error = "Password does not match";
                 $_SESSION["passwordMatchError"] = "Password does not match";
             }
-            if($this->image == ""){
-                $error = "Please upload your image";
-                $_SESSION["noImgError"] = "Please upload an image0";
-            }
-            if($this->imageSize > 1048576){
-                $error = "Image size must be less than 1 mb";
-                $_SESSION["imgSizeError"] = "Image size must be less than 1mb.";
-            }           
+            // if($this->image == ""){
+            //     $error = "Please upload your image";
+            //     $_SESSION["noImgError"] = "Please upload an image0";
+            // }
+            // if($this->imageSize > 1048576){
+            //     $error = "Image size must be less than 1 mb";
+            //     $_SESSION["imgSizeError"] = "Image size must be less than 1mb.";
+            // }           
             // else if(!$conditions){
             //     $error = "You must be agree with the terms and conditions";
             // }
