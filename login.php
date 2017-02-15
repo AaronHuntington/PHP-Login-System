@@ -1,18 +1,10 @@
 <?php
-
     include("inc/config.php");
     include(INC_FOLDER_ROOTPATH."header.php");
-    
-    echo utility::logIn_check();
-
 
     $loginClass = new login;
 
-    if($loginClass->logged_in())
-    {
-        header("location:profile.php");
-        exit();
-    }
+    utility::login_reroute_toCms();
 
     if(isset($_POST['submit']))
     {

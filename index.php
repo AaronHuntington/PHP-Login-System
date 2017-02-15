@@ -1,6 +1,7 @@
 <?php
     include("inc/config.php");
     include(INC_FOLDER_ROOTPATH."header.php");
+    utility::login_reroute_toCms();
 
     $signupClass = new signup;
 

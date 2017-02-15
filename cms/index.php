@@ -4,15 +4,12 @@
 
     if(utility::logIn_check()){
 
-    } else{
+    } else {
         $msg = "You are not logged in.";
         $url = BASE_URL."login.php";
         utility::set_sessionMessage($msg);
         utility::redirect_index($url);
     }
-    // echo '<br><br>';
-    // echo $_SESSION['loginEmail'];
-    // echo '<br><br>';
 
     $userName = utility::get_userName_byEmail($_SESSION['loginEmail']);
 
@@ -21,6 +18,11 @@
 
 ?>
             <h1 style="text-align: center;">Inside CMS</h1>
+            <h3 style="text-align: center; color:red;">
+                <?php
+                    utility::message();
+                ?>
+            </h3>
             <div id="cms_box">
                 <h2>Welcome, <?php echo $userName;?>!</h2>
                 <table>

@@ -36,10 +36,17 @@
                 return true;
             } else{
                 return false;
-                // $msg = "You are not logged in.";
-                // $url = BASE_URL."login.php";
-                // utility::set_sessionMessage($msg);
-                // utility::redirect_index($url);
+            }
+        }
+
+        public static function logIn_reroute_toCms(){
+            if(utility::logIn_check()){
+                $url = "cms/";
+                $msg = "You are already logged in.";
+
+                utility::set_sessionMessage($msg);
+                utility::redirect_index($url);
+                exit();
             }
         }
 

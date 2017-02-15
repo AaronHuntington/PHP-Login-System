@@ -63,14 +63,6 @@
             return $value['password'];
         }
 
-        public function logged_in(){
-            if(isset($_SESSION['email']) || isset($_COOKIE['email'])){
-                return true;
-            } else {
-                return false;
-            }
-        }
-
         public function check_for_errors(){
             $errors = $this->errors;
 
